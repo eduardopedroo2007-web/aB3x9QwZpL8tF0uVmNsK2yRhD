@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Carteirinha Digital</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      /* Fundo criativo, moderno e profissional */
+      background: linear-gradient(135deg, #26ad53 0%, #4b77d6 100%);
+      background-attachment: fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .card-container {
+      perspective: 1200px;
+      text-align: center;
+    }
+
+    .card {
+      width: 500px;
+      height: 320px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.9s;
+      cursor: pointer;
+      margin: auto;
+    }
+
+    .card.is-flipped {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      backface-visibility: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      background: #fff;
+      border: 2px solid #22913c;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    /* Logo adicional no canto superior direito */
+.front .logo-top-right {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 80px;
+  height: 80px;
+}
+.front .logo-top-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+    /* Frente */
+    .front {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      grid-gap: 15px;
+      align-items: center;
+    }
+    .foto {
+      width: 120px;
+      height: 150px;
+      border: 2px solid #22913c;
+      border-radius: 5px;
+      background: #eee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    .foto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .dados {
+      font-size: 0.95em;
+      color: #111;
+      text-align: justify
+    }
+    .dados h2 {
+      margin: 0 0 10px 0;
+      font-size: 1.2em;
+      color: #008a1e;
+      text-align: center;
+
+    }
+    .dados p {
+      margin: 4px 0;
+    }
+
+    /* Verso */
+    .verso {
+      transform: rotateY(180deg);
+      font-size: 0.85em;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .verso h3 {
+      text-align: center;
+      color: #22913c;
+      margin-top: 5px;
+    }
+
+    .imagens-verso {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 10px;
+    }
+
+    .assinatura-diretor img {
+      width: 115px;
+      height: auto;
+    }
+
+    .assinatura-diretor {
+      display: flex;
+      flex-direction: column;
+      text-align: right;
+      font-style: italic;
+      font-size: 0.9em;
+    }
+
+    .assinatura-diretor p {
+      margin: 2px 0;
+    }
+
+    .logo img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+    }
+
+    /* Instrução para virar */
+    .hint {
+      text-align: center;
+      margin-top: 12px;
+      font-size: 0.9em;
+      color: #f0f0f0;
+    }
+
+    /* Botão da instituição */
+    .instituicao-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #fff;
+      color: #0077ff;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: 0.3s;
+    }
+    .instituicao-btn:hover {
+      background: #0077ff;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card-container">
+    <div class="card" id="carteira">
+
+      <!-- Frente -->
+      <div class="card-face front">
+        <div class="foto">
+          <img src="3x4.jpg" alt="Foto do Estudante">
+        </div>
+        <div class="dados">
+          <h2>Identidade Estudantil</h2>
+          <p><b>Nome:</b> Pedro Eduardo Ferreira Carvalho</p>
+          <p><b>CPF:</b> 146.472.386.95</p>
+          <p><b>RG:</b> MG-21.058.843</p>
+          <p><b>Nascimento:</b> 01/08/2007</p>
+          <p><b>Matrícula:</b> T23432</p>
+          <p><b>Curso:</b> Técnico em Informática</p>
+        </div>
+        <!-- Logo adicional no canto superior direito -->
+<div class="logo-top-right">
+  <img src="A.png" alt="Logo da Instituição">
+</div>
+
+      </div>
+
+      <!-- Verso -->
+      <div class="card-face verso">
+        <div>
+          <h3>Validade: 15/09/2026</h3>
+          <p><b>Lei Estadual nº 11052/1993</b><br>
+          Regulamenta a meia-entrada para estudantes regularmente matriculados em estabelecimentos de ensino de Minas Gerais.</p>
+
+          <p><b>Lei Municipal nº 1461/2001</b><br>
+          União dos Estudantes reconhecida de utilidade pública, conforme decretos vigentes.</p>
+        </div>
+
+        <div class="imagens-verso">
+          <div class="assinatura-diretor">
+            <img src="C.png" alt="Assinatura do Diretor">
+            <p>Edson Renato Ferreira Vilela</p>
+            <p>Diretor Responsável</p>
+          </div>
+          <div class="logo">
+            <img src="A.png" alt="Logo da Instituição">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hint">Clique na carteirinha para virar</div>
+    <a href="https://www.econodata.com.br/consulta-empresa/03037585000102-proton-escola-tecnica-e-profissionalizante-ltda" target="_blank" class="instituicao-btn">
+      Sobre a Instituição
+    </a>
+  </div>
+
+  <script>
+    const card = document.getElementById("carteira");
+    card.addEventListener("click", () => {
+      card.classList.toggle("is-flipped");
+    });
+  </script>
+
+</body>
+</html>
